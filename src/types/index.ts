@@ -8,7 +8,6 @@ export interface Product {
   
   export interface Order {
     id: number;
-    product_id: number;
     debt_id: string;
     amount: number;
     status: string;
