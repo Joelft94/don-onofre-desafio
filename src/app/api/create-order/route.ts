@@ -5,16 +5,25 @@ import { v4 as uuidv4 } from 'uuid';
 
 export async function POST(request: Request) {
   try {
-    const { productId, amount, concept } = await request.json();
-    const docId = uuidv4(); // Generate a unique ID for the debt
-    const { payUrl, debtId } = await createDebt(amount, concept, docId);
-    const order = await createOrder(productId, debtId, amount, 'pending');
+    const { items, total } = await request.json();
+    console.log('Received order request:', { items, total });
+
+    const docId = uuidv4();
+    const concept = `Purchase of ${items.length} item${items.length > 1 ? 's' : ''}`;
+    console.log('Creating debt with AdamsPay');
+    const { payUrl, debtId } = await createDebt(total, concept, docId);
+    console.log('Debt created successfully:', { payUrl, debtId });
+
+    console.log('Creating order in database');
+    const order = await createOrder(items, debtId, total, 'pending');
+    console.log('Order created successfully:', order);
+
     return NextResponse.json({ 
       orderId: order.id, 
       paymentUrl: payUrl 
     });
   } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: 'Error creating order' }, { status: 500 });
+    console.error('Error in create-order:', error);
+    return NextResponse.json({ error: error.message || 'Error creating order' }, { status: 500 });
   }
 }
