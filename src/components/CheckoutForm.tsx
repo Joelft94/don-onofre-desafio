@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Product } from '@/types';
+import { getErrorMessage } from '@/utils/errorHandler'; // Import the error handling utility
 
 export default function CheckoutForm({ product }: { product: Product }) {
   const [paymentUrl, setPaymentUrl] = useState<string | null>(null);
@@ -30,12 +31,12 @@ export default function CheckoutForm({ product }: { product: Product }) {
       const data = await response.json();
       setPaymentUrl(data.paymentUrl);
       // Simulate payment completion and redirect to confirmation page
-      // In a real scenario, this would be handled by the webhook
+      // In a real scenario, this would be handled by the webhook TODO
       setTimeout(() => {
         router.push(`/confirmation?orderId=${data.debtId}`);
       }, 5000);
     } catch (err) {
-      setError(err.message);
+      setError(getErrorMessage(err));
     } finally {
       setIsLoading(false);
     }
