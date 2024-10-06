@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import { getErrorMessage } from '@/utils/errorHandler'; // Import the error handling utility
 
 const ADAMSPAY_API_URL = process.env.ADAMSPAY_API_URL;
