@@ -1,4 +1,5 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
+import { getErrorMessage } from '@/utils/errorHandler'; // Import the error handling utility
 
 const ADAMSPAY_API_URL = process.env.ADAMSPAY_API_URL;
 const ADAMSPAY_API_KEY = process.env.ADAMSPAY_API_KEY;
@@ -47,7 +48,11 @@ export async function createDebt(amount: number, concept: string, docId: string)
       throw new Error('Debt creation failed: ' + JSON.stringify(response.data));
     }
   } catch (error) {
-    console.error('AdamsPay error response:', error.response?.data || error.message);
+    if (axios.isAxiosError(error)) {
+      console.error('AdamsPay error response:', error.response?.data || error.message);
+    } else {
+      console.error('AdamsPay error:', getErrorMessage(error));
+    }
     throw error;
   }
 }
