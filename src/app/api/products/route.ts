@@ -1,19 +1,12 @@
-import { createClient } from '@/lib/supabase/server'
-import { NextRequest, NextResponse } from 'next/server'
-import { cookies } from 'next/headers'
+import { NextResponse } from 'next/server';
+import { getAllProducts, getProductById } from '@/lib/db';
 
-export async function GET(_request: NextRequest) {
-  const cookieStore = cookies()
-  const supabase = createClient(cookieStore)
-
+export async function GET() {
   try {
-    const { data, error } = await supabase.from('products').select('*')
-
-    if (error) throw error
-
-    return NextResponse.json(data)
+    const products = await getAllProducts();
+    return NextResponse.json(products);
   } catch (error) {
-    console.error('Error fetching products:', error)
-    return NextResponse.json({ error: 'Failed to fetch products' }, { status: 500 })
+    console.error('Error fetching products:', error);
+    return NextResponse.json({ error: 'Failed to fetch products' }, { status: 500 });
   }
 }

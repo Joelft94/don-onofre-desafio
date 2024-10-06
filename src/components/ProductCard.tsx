@@ -15,7 +15,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <div className="border rounded-lg p-4">
-      <Image src={product.image_url} alt={product.name} className="w-full h-48 object-cover mb-4" />
+      <Image src={product.image_url} alt={product.name} width={500} height={500} className="w-full h-48 object-cover mb-4" />
       <h2 className="text-xl font-semibold">{product.name}</h2>
       <p className="text-gray-600">{product.description}</p>
       <p className="text-lg font-bold mt-2">₲{product.price.toLocaleString()}</p>
