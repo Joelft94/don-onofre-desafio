@@ -1,5 +1,3 @@
-// File: lib/db.ts
-
 import { createClient } from './supabase/server'
 import { cookies } from 'next/headers'
 import { Product, Order } from "@/types"
