@@ -3,6 +3,7 @@
 import { useCart } from '@/contexts/CartContext';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { getErrorMessage } from '@/utils/errorHandler';
 
 export default function CheckoutPage() {
   const { items, total, clearCart } = useCart();
@@ -31,7 +32,7 @@ export default function CheckoutPage() {
       clearCart();
       router.push(paymentUrl);
     } catch (err) {
-      setError(err.message);
+      setError(getErrorMessage(err)); // Use the error handling utility
     } finally {
       setIsLoading(false);
     }
