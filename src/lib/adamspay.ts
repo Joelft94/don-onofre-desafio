@@ -7,7 +7,7 @@ const ADAMSPAY_API_KEY = process.env.ADAMSPAY_API_KEY;
 export async function createDebt(amount: number, concept: string, docId: string) {
   try {
     const now = new Date();
-    const end = new Date(now.getTime() + 48 * 60 * 60 * 1000); // 48 hours from now
+    const end = new Date(now.getTime() + 48 * 60 * 60 * 1000); // 48 hours from now (in milliseconds) 60 seconds * 60 minutes * 1000 milliseconds
 
     const formatDate = (date: Date) => {
       return date.toISOString().split('.')[0] + '-04:00'; // Assuming Paraguay time zone (GMT-4)

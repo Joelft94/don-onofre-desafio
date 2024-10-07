@@ -1,5 +1,3 @@
-// File: src/app/api/create-order/route.ts
-
 import { NextResponse } from 'next/server';
 import { createDebt } from '@/lib/adamspay';
 import { createOrder } from '@/lib/db';
