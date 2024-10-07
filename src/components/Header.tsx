@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-'use client';
-import React, { useState } from 'react';
-import { ChevronLeftIcon, ShoppingCartIcon } from '@heroicons/react/20/solid';
-import { useCart } from '@/contexts/CartContext';
-import Cart from '@/components/Cart';
+"use client";
+import React, { useState } from "react";
+import { ChevronLeftIcon, ShoppingCartIcon } from "@heroicons/react/20/solid";
+import { useCart } from "@/contexts/CartContext";
+import Cart from "@/components/Cart";
+import Link from "next/link";
 
 const Header: React.FC = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -14,18 +15,37 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div>
           <nav aria-label="Back" className="sm:hidden">
-            <a href="#" className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700">
-              <ChevronLeftIcon aria-hidden="true" className="-ml-1 mr-1 h-5 w-5 flex-shrink-0 text-gray-400" />
+            <a
+              href="#"
+              className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700"
+            >
+              <ChevronLeftIcon
+                aria-hidden="true"
+                className="-ml-1 mr-1 h-5 w-5 flex-shrink-0 text-gray-400"
+              />
               Back
             </a>
           </nav>
           <nav aria-label="Breadcrumb" className="hidden sm:flex">
             <ol role="list" className="flex items-center space-x-4">
+            <li>
+                <div className="flex">
+                  <Link
+                    href="/"
+                    className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    Home
+                  </Link>
+                </div>
+              </li>
               <li>
                 <div className="flex">
-                  <a href="/" className="text-sm font-medium text-gray-500 hover:text-gray-700">
-                    Home
-                  </a>
+                  <Link
+                    href="/transactions"
+                    className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    Transacciones
+                  </Link>
                 </div>
               </li>
             </ol>
