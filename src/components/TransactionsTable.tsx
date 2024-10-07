@@ -68,7 +68,7 @@ export default function TransactionsTable() {
                   <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                     App
                   </th>
-                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 text-center">
                     Ambiente de desarrollo
                   </th>
                 </tr>
