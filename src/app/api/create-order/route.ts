@@ -1,7 +1,11 @@
+// File: src/app/api/create-order/route.ts
+
 import { NextResponse } from 'next/server';
 import { createDebt } from '@/lib/adamspay';
 import { createOrder } from '@/lib/db';
 import { v4 as uuidv4 } from 'uuid';
+
+export const dynamic = 'force-dynamic'; // This line makes the route dynamic
 
 export async function POST(request: Request) {
   try {
