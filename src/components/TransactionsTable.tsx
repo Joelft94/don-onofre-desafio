@@ -85,7 +85,7 @@ export default function TransactionsTable() {
                     </td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{transaction.merchant}</td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{transaction.app}</td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{transaction.env}</td>
+                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">{transaction.env}</td>
                   </tr>
                 ))}
               </tbody>
