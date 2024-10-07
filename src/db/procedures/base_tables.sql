@@ -10,6 +10,7 @@ INSERT INTO products (name, description, price, image_url) VALUES
 ('Laptop', 'Gaming laptop ', 6000000, '/images/laptop.jpg'),
 ('Teclado', 'Teclado Gamer', 120000, '/images/keyboard.jpg'),
 ('Headset', 'Gaming Headset', 300000, '/images/headphones.jpg');
+('Mouse', 'Mouse Gamer RGB', 100000, '/images/mouse.jpg');
 
 
 
