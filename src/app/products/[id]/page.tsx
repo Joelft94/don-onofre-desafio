@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { notFound } from 'next/navigation';
 import { getProductById } from '@/lib/db';
 import CheckoutForm from '@/components/CheckoutForm';
