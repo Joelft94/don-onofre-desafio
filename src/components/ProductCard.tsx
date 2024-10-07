@@ -3,6 +3,7 @@
 import React from 'react';
 import { Product } from '@/types';
 import { useCart } from '@/contexts/CartContext';
+import Image from 'next/image'
 
 interface ProductCardProps {
   product: Product;
@@ -19,9 +20,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <div key={product.id}>
       <div className="relative">
         <div className="relative h-72 w-full overflow-hidden rounded-lg">
-          <img
+          <Image
             alt={product.name}
             src={product.image_url}
+            width={500}
+            height={500}
             className="h-full w-full object-cover object-center"
           />
         </div>

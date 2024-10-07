@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 import React, { useState } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon, ShoppingCartIcon } from '@heroicons/react/20/solid';
+import { ChevronLeftIcon, ShoppingCartIcon } from '@heroicons/react/20/solid';
 import { useCart } from '@/contexts/CartContext';
 import Cart from '@/components/Cart';
 
