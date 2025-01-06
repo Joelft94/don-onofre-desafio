@@ -5,6 +5,8 @@ import { ChevronLeftIcon, ShoppingCartIcon } from "@heroicons/react/20/solid";
 import { useCart } from "@/contexts/CartContext";
 import Cart from "@/components/Cart";
 import Link from "next/link";
+import { FaHouseUser } from "react-icons/fa";
+import { IconContext } from "react-icons";
 
 const Header: React.FC = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -28,8 +30,16 @@ const Header: React.FC = () => {
           </nav>
           <nav aria-label="Breadcrumb" className="hidden sm:flex">
             <ol role="list" className="flex items-center space-x-4">
-            <li>
+              <li>
                 <div className="flex">
+                  <IconContext.Provider
+                    value={{ color: "black", className: "global-class-name", size:"2em" }}
+                  >
+                    <div>
+                      <FaHouseUser />
+                    </div>
+                  </IconContext.Provider>
+                  ;
                   <Link
                     href="/"
                     className="text-black hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
