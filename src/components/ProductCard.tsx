@@ -9,12 +9,16 @@ interface ProductCardProps {
   product: Product;
 }
 
-const [isOpen, setIsOpen] = useState(false);
 
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { addToCart } = useCart();
-
+  
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleDescription = () => {
+    setIsOpen(!isOpen);
+  }
+  // fix
   const handleAddToCart = () => {
     addToCart(product);
   };
