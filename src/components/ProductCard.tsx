@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Product } from '@/types';
 import { useCart } from '@/contexts/CartContext';
 import Image from 'next/image'
@@ -8,6 +8,9 @@ import Image from 'next/image'
 interface ProductCardProps {
   product: Product;
 }
+
+const [isOpen, setIsOpen] = useState(false);
+
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { addToCart } = useCart();
@@ -30,7 +33,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
         <div className="relative mt-4">
           <h3 className="text-sm font-medium text-gray-900">{product.name}</h3>
-          <p className="mt-1 text-sm text-gray-500">{product.description}</p>
+          <p className="mt-1 text-sm text-gray-500">{isOpen? product.description : product.description.substring(0, 10) } </p>
         </div>
         <div className="absolute inset-x-0 top-0 flex h-72 items-end justify-end overflow-hidden rounded-lg p-4">
           <div
